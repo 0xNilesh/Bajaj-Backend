@@ -49,7 +49,7 @@ router.post("/healthPackage/add", async (req, res) => {
 	}
 });
 
-router.get("/healthPackage/find", async (req, res) => {
+router.post("/healthPackage/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -72,7 +72,6 @@ router.get("/healthPackage/find", async (req, res) => {
 	}
 });
 
-// Health Prime wala bnana hai
 const arr = {
 	"60f92d6dd4a05a2c842f0014": "Pro Health Solution",
 	"60f92e34d4a05a2c842f0016": "Super Health Solution",
@@ -90,9 +89,10 @@ const arr = {
 	"60fa9e34834e7b37d0101db5": "Super Top-Up",
 	"60fa9f59834e7b37d0101db7": "Healthy Body Package Essential",
 	"60faa011834e7b37d0101db9": "Healthy Body Package Classic",
+	"60face3fcc9be3001541e382": "Health Prime",
 };
 
-router.get("/healthPackage/find/all", async (req, res) => {
+router.post("/healthPackage/find/all", async (req, res) => {
 	try {
 		const response = await healthPackage.find({}).exec();
 		const finalResponse = [];
@@ -131,7 +131,7 @@ router.post("/doctorConsultation/add", async (req, res) => {
 	}
 });
 
-router.get("/doctorConsultation/find", async (req, res) => {
+router.post("/doctorConsultation/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -148,7 +148,7 @@ router.get("/doctorConsultation/find", async (req, res) => {
 	}
 });
 
-router.get("/doctorConsultation/hp/find", async (req, res) => {
+router.post("/doctorConsultation/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -183,7 +183,7 @@ router.post("/labPackages/add", async (req, res) => {
 	}
 });
 
-router.get("/labPackages/find", async (req, res) => {
+router.post("/labPackages/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -200,7 +200,7 @@ router.get("/labPackages/find", async (req, res) => {
 	}
 });
 
-router.get("/labPackages/hp/find", async (req, res) => {
+router.post("/labPackages/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -235,7 +235,7 @@ router.post("/healthCheckup/add", async (req, res) => {
 	}
 });
 
-router.get("/healthCheckup/find", async (req, res) => {
+router.post("/healthCheckup/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -257,7 +257,7 @@ router.get("/healthCheckup/find", async (req, res) => {
 	}
 });
 
-router.get("/healthCheckup/hp/find", async (req, res) => {
+router.post("/healthCheckup/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -292,7 +292,7 @@ router.post("/healthInsurance/add", async (req, res) => {
 	}
 });
 
-router.get("/healthInsurance/find", async (req, res) => {
+router.post("/healthInsurance/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -321,7 +321,7 @@ router.get("/healthInsurance/find", async (req, res) => {
 	}
 });
 
-router.get("/healthInsurance/hp/find", async (req, res) => {
+router.post("/healthInsurance/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -356,7 +356,7 @@ router.post("/hospitalCashBenefits/add", async (req, res) => {
 	}
 });
 
-router.get("/hospitalCashBenefits/find", async (req, res) => {
+router.post("/hospitalCashBenefits/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -385,7 +385,7 @@ router.get("/hospitalCashBenefits/find", async (req, res) => {
 	}
 });
 
-router.get("/hospitalCashBenefits/hp/find", async (req, res) => {
+router.post("/hospitalCashBenefits/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -420,7 +420,7 @@ router.post("/hospitalizationBenefits/add", async (req, res) => {
 	}
 });
 
-router.get("/hospitalizationBenefits/find", async (req, res) => {
+router.post("/hospitalizationBenefits/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -433,7 +433,7 @@ router.get("/hospitalizationBenefits/find", async (req, res) => {
 	}
 });
 
-router.get("/hospitalizationBenefits/hp/find", async (req, res) => {
+router.post("/hospitalizationBenefits/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -468,7 +468,7 @@ router.post("/networkDiscounts/add", async (req, res) => {
 	}
 });
 
-router.get("/networkDiscounts/find", async (req, res) => {
+router.post("/networkDiscounts/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -492,7 +492,7 @@ router.get("/networkDiscounts/find", async (req, res) => {
 	}
 });
 
-router.get("/networkDiscounts/hp/find", async (req, res) => {
+router.post("/networkDiscounts/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
@@ -527,7 +527,7 @@ router.post("/teleConsultations/add", async (req, res) => {
 	}
 });
 
-router.get("/teleConsultations/find", async (req, res) => {
+router.post("/teleConsultations/find", async (req, res) => {
 	try {
 		const obj = req.body;
 		const objToFind = obj;
@@ -546,13 +546,15 @@ router.get("/teleConsultations/find", async (req, res) => {
 	}
 });
 
-router.get("/teleConsultations/hp/find", async (req, res) => {
+router.post("/teleConsultations/hp/find", async (req, res) => {
 	try {
 		const obj = req.body;
 
-		const response = await teleConsultations.findOne(obj).exec();
+		const response = await teleConsultations.find(obj).exec();
 
-		await response
+		console.log(response);
+
+		await response[0]
 			.populate({
 				path: "healthPackages",
 				select: {
@@ -564,7 +566,9 @@ router.get("/teleConsultations/hp/find", async (req, res) => {
 			})
 			.execPopulate();
 
-		res.status(200).send(response.healthPackages);
+		console.log(response[0].healthPackages);
+
+		res.status(200).send(response[0].healthPackages);
 	} catch (err) {
 		res.status(500).send(err.message);
 	}

@@ -28,7 +28,7 @@ const networkDiscountsSchema = new mongoose.Schema({
 networkDiscountsSchema.virtual("healthPackages", {
 	ref: "HealthPackages",
 	localField: "_id",
-	foreignField: "networkDiscounts",
+	foreignField: "networkDiscountsId",
 });
 
 const networkDiscounts = mongoose.model(

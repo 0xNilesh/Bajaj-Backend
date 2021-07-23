@@ -32,7 +32,7 @@ const teleConsultationsSchema = new mongoose.Schema({
 teleConsultationsSchema.virtual("healthPackages", {
 	ref: "HealthPackages",
 	localField: "_id",
-	foreignField: "teleConsultations",
+	foreignField: "teleConsultationsId",
 });
 
 const teleConsultations = mongoose.model(

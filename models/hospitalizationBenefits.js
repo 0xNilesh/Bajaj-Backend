@@ -28,7 +28,7 @@ const hospitalizationBenefitsSchema = new mongoose.Schema({
 hospitalizationBenefitsSchema.virtual("healthPackages", {
 	ref: "HealthPackages",
 	localField: "_id",
-	foreignField: "hospitalizationBenefits",
+	foreignField: "hospitalizationBenefitsId",
 });
 
 const hospitalizationBenefits = mongoose.model(

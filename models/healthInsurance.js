@@ -31,7 +31,7 @@ const healthInsuranceSchema = new mongoose.Schema({
 healthInsuranceSchema.virtual("healthPackages", {
 	ref: "HealthPackages",
 	localField: "_id",
-	foreignField: "healthInsurance",
+	foreignField: "healthInsuranceId",
 });
 
 const healthInsurance = mongoose.model(
