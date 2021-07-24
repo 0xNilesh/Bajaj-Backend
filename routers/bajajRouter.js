@@ -115,6 +115,7 @@ router.post("/healthPackage/find/all", async (req, res) => {
 			const objToSend = {
 				title: obj.title,
 				description: obj.description,
+				url: obj.url,
 				benefits: [],
 			};
 			for (const prop in obj._doc) {
