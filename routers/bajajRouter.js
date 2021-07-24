@@ -72,6 +72,7 @@ router.post("/healthPackage/find", async (req, res) => {
 			healthPackageData: {
 				title: response.title,
 				description: response.description,
+				url: response.url,
 			},
 			featuresData: [],
 		};
