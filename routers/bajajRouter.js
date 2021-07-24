@@ -9,6 +9,7 @@ const healthInsurance = require("../models/healthInsurance");
 const hospitalizationBenefits = require("../models/hospitalizationBenefits");
 const hospitalCashBenefits = require("../models/hospitalCashBenefits");
 const healthPackage = require("../models/healthPackage");
+const articlesCollection = require("../models/articlesCollection");
 
 // Features API Map
 const featuresAPIMap = {
@@ -569,6 +570,30 @@ router.post("/teleConsultations/hp/find", async (req, res) => {
 		console.log(response[0].healthPackages);
 
 		res.status(200).send(response[0].healthPackages);
+	} catch (err) {
+		res.status(500).send(err.message);
+	}
+});
+
+// Articles Requests
+router.post("/articles/add", async (req, res) => {
+	try {
+		const obj = new articlesCollection(req.body);
+		const doc = await obj.save();
+		res.status(200).send(doc);
+	} catch (err) {
+		res.send(err.message);
+	}
+});
+
+router.post("/articles/find", async (req, res) => {
+	try {
+		const obj = req.body;
+		const objToFind = obj;
+
+		const response = await articlesCollection.find(objToFind).exec();
+
+		res.status(200).send(response);
 	} catch (err) {
 		res.status(500).send(err.message);
 	}
