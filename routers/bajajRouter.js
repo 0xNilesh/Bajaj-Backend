@@ -23,6 +23,17 @@ const featuresAPIMap = {
 	teleConsultationsId: teleConsultations,
 };
 
+const featuresNameAPIMap = {
+	doctorConsultationId: "Doctor Consultation",
+	healthCheckupId: "Health Checkup",
+	hospitalCashBenefitsId: "Hospital Cash Benefits",
+	hospitalizationBenefitsId: "Hospitalization Benefits",
+	healthInsuranceId: "Health Insurance",
+	labPackagesId: "Lab Packages",
+	networkDiscountsId: "Network Discounts",
+	teleConsultationsId: "Tele Consultations",
+};
+
 const sendFeaturesData = async (obj) => {
 	const responseArray = [];
 
@@ -101,20 +112,20 @@ router.post("/healthPackage/find/all", async (req, res) => {
 		for (let i = 0; i < response.length; i++) {
 			const obj = response[i];
 			const objToSend = {
-				healthPackageData: {
-					title: obj.title,
-					description: obj.description,
-				},
-				featuresData: [],
+				title: obj.title,
+				description: obj.description,
+				benefits: [],
 			};
-			objToSend.featuresData = await sendFeaturesData(obj);
+			for (const prop in obj._doc) {
+				if (featuresAPIMap[prop] !== undefined) {
+					const package = featuresNameAPIMap[prop];
+					objToSend.benefits.push(package);
+				}
+			}
 			finalResponse[i] = objToSend;
-			// console.log(objToSend);
 		}
 
-		// response.forEach((obj) => {
-
-		console.log(finalResponse);
+		// console.log(finalResponse);
 		res.status(200).send(finalResponse);
 	} catch (err) {
 		res.status(500).send(err.message);
